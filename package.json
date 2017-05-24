@@ -1,0 +1,11 @@
+{
+  "name": "ifpatrends",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nick Yahnke <nthitz@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "request": "^2.81.0"
+  }
+}
