@@ -16,7 +16,7 @@ db.each(
     if (resultData.results) {
       total_wpprs = resultData.results.reduce(
         (sum, player) => {
-          return sum + player.points
+          return sum + parseInt(player.points, 10)
         },
         0
       )
