@@ -1,11 +1,8 @@
 const sqlite3 = require('sqlite3')
-
+const locationHash = require('../utils/locationHash')
 const db = new sqlite3.Database(`${__dirname}/../data.sqlite3`)
 const locations = {}
 
-function locationHash(location) {
-  return `${location.country_code}-${location.state}-${location.city}`
-}
 db.each(
   'SELECT listData, fullData, tournament_id FROM tournaments_raw',
   [],
