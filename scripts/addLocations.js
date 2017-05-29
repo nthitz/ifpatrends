@@ -39,7 +39,7 @@ function insertLocations(locationMap) {
           VALUES (?, ?, ?, ?, ?)`,
         [location.country_code, location.country_name, location.state,
           location.city, location.hash],
-        checkIfDone()
+        checkIfDone
       )
     }
     const checkCount = (error, result) => {
