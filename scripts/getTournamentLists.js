@@ -12,12 +12,14 @@ const listAmount = 250
 const api = 'https://api.ifpapinball.com/v1/'
 
 const minYear = 2009
+const bailWhenDuplicates = true
 let allDone = false
 
 let totalOffset = 0
 let numAlreadyInserted = 0
 let numNew = 0
 let numRemainingInList = 0
+let numPreviouslyNew = 0
 function getList(offset=0) {
   const listApi = `${api}tournament/list?start_pos=${offset}&count=${listAmount}&api_key=${IFPAKEY}`
   request(listApi, (error, response, body) => {
@@ -69,6 +71,10 @@ function getList(offset=0) {
 function listItemDone() {
   numRemainingInList --
   if (numRemainingInList === 0) {
+    if (numNew === numPreviouslyNew) {
+      allDone = true
+    }
+    numPreviouslyNew = numNew
     console.log(`num new ${numNew}, old ${numAlreadyInserted}`)
     if (!allDone) {
       setTimeout(() => {
