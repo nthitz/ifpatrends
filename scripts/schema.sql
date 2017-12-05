@@ -32,3 +32,26 @@ CREATE TABLE IF NOT EXISTS tournaments (
   total_wpprs REAL,
   FOREIGN KEY(location_hash) REFERENCES locations(hash)
 );
+
+CREATE TABLE IF NOT EXISTS players (
+  player_id INTEGER PRIMARY KEY,
+  name TEXT,
+  initials TEXT,
+  ranking REAL,
+  ranking_rank INTEGER,
+  rating REAL,
+  rating_rank INTEGER,
+  eff_percent REAL,
+  eff_percent_rank INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS player_history (
+  player_history_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  date TEXT,
+  tournament_id INTEGER,
+  player_id INTEGER,
+  position INTEGER,
+  rank INTEGER,
+  rating REAL,
+  points REAL
+);

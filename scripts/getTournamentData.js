@@ -24,7 +24,7 @@ function selectNext() {
       if (error) throw error
       const results = JSON.parse(body)
       resultsData = JSON.stringify(results.tournament)
-      setTimeout(requestTournamentData, 2000)
+      setTimeout(requestTournamentData, 200)
     })
   }
   const requestTournamentData = () => {
@@ -44,7 +44,7 @@ function selectNext() {
       [tournamentData, resultsData, tournamentId],
       (error) => {
         if (error) throw error
-        setTimeout(selectNext, 2000)
+        setTimeout(selectNext, 200)
       }
     )
   }
