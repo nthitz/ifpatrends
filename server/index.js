@@ -25,7 +25,10 @@ app.post('/getPlayerData', (request, response) => {
     return
   }
   db.all(
-    `SELECT * FROM player_history WHERE player_id IN (${ids.join(',')})`,
+    `SELECT *
+    FROM player_history
+    WHERE player_id IN (${ids.join(',')})
+    ORDER BY date ASC`,
     [],
     (error, rows) => {
       if (error) throw error
